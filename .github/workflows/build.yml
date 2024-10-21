@@ -1,0 +1,17 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the application
+        run: make
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-application
+          path: ./my-application
+
